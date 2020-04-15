@@ -29,6 +29,20 @@ switch (comando) {
         let borrado = porHacer.borrar(argv.descripcion);
         console.log(borrado);
         break;
+    case 'buscar':
+        let listado2 = porHacer.getBuscar(argv.descripcion);
+
+        if (listado2 != false) {
+            console.log('=== === === por hacer === === === === '.green);
+            console.log(listado2.descripcion);
+            console.log('estado: ', listado2.completado);
+            console.log('=== === === === === === === === === === '.green);
+        } else {
+            console.log('No se encontro la tarea');
+        }
+
+
+        break;
     default:
         console.log('Comando no reconocido');
 }

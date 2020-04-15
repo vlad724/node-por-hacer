@@ -48,6 +48,15 @@ const getListado = () => {
     return listadoPorHacer;
 }
 
+const getBuscar = (descripcion) => {
+    cargarDB();
+    let index = listadoPorHacer.findIndex(tarea => tarea.descripcion === descripcion);
+    if (index >= 0) {
+        return listadoPorHacer[index];
+    } else {
+        return false;
+    }
+}
 
 const actualizar = (descripcion, completado = true) => {
     cargarDB();
@@ -78,5 +87,6 @@ module.exports = {
     crear,
     getListado,
     actualizar,
-    borrar
+    borrar,
+    getBuscar
 }
